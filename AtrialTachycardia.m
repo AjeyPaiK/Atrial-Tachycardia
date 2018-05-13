@@ -17,7 +17,9 @@ load ATPdb.mat;
 Fs=122;         %122Hz for Records provided. 360Hz for MITDB records.
 adu='mV';
 info='testrec'; %The output header file, data file will be generated in this name.
-M=csvread('AF1mV-Lead2.csv');
+prompt='Enter the name of your ECG record:';
+string=input(prompt,'s');
+M=csvread(string);
 mat2wfdb(M,info,Fs,[],adu,info);
 %-----------------------------------------------------------------------------------%
 % Pre-Processing using the WFDB commands to extract various parameters
